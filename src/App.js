@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Basic from "./Components/Basic";
+import Home from "./Pages/Home";
+import Create_project from "./Pages/Create_project";
+import "./index.css"
+import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
+import Story from "./Components/Story";
+import Milestones from "./Components/MileStones";
+import Rewards from "./Components/Rewards";
+import Payement from "./Components/Payement";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className="hov1">
+      <Home/>
+      <Create_project/>
+      <Routes>
+          <Route path="basic" element={<Basic/>} /> 
+          <Route path="story" element={<Story/>} />
+          <Route path="milestones" element={<Milestones/>} /> 
+          <Route path="rewards" element={<Rewards/>} /> 
+          <Route path="payment" element={<Payement/>} /> 
+      </Routes>
     </div>
+    </Router>
   );
 }
 
