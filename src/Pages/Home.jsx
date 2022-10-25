@@ -12,8 +12,7 @@ import Preview from '../Components/Preview'
 function Home() {
   return (
     <div>
-      
-        {/* <Header/> */}
+        <Header/>
         {/* <Nextheader/> */}
         {/* <Preview/>  */}
 

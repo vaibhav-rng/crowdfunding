@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "../index.css"
 
 
@@ -10,8 +11,8 @@ const Header = () => {
 
         <div>
           <ul className="navbar-nav nav ">
-            <li className="nav-item  ">
-              <a className="nav-link" href="#">Start a Fundraiser</a>
+            <li className="nav-item">
+              <Link className="nav-link" to="/createproject">Start a Fundraiser</Link>
             </li>
           </ul>
         </div>

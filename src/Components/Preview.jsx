@@ -1,8 +1,10 @@
 import React from 'react'
 
 const preview = (props) => {
+
   return (
     <>
+
       <br />
 
       <div className=' text-center'>
@@ -57,11 +59,11 @@ const preview = (props) => {
         <div className=' w-50 container'>
           <div >
             <h4>Story</h4>
-            <h6 className='' >Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are. Your description should tell backers everything they need to know. If possible, include images to show them what your project is all about and what rewards look like.Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are. Your description should tell backers everything they need to know. If possible, include images to show them what your project is all about and what rewards look like.Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are. Your description should tell backers everything they need to know. If possible, include images to show them what your project is all about and what rewards look like.Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are. Your description should tell backers everything they need to know. If possible, include images to show them what your project is all about and what rewards look like.</h6>
+            <h6>{props.basicState.story}</h6>
           </div>
           <div>
             <h4>Risks and challenges</h4>
-            <h6>Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are. Your description should tell backers everything they need to know. If possible, include images to show them what your project is all about and what rewards look like.Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are. Your description should tell backers everything they need to know. If possible, include images to show them what your project is all about and what rewards look like.Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are. Your description should tell backers everything they need to know. If possible, include images to show them what your project is all about and what rewards look like.Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are. Your description should tell backers everything they need to know. If possible, include images to show them what your project is all about and what rewards look like.</h6>
+            <h6>{props.basicState.risks}</h6>
           </div>
         </div>
         <div className='w-25 container'>
@@ -101,9 +103,6 @@ const preview = (props) => {
 
           <br />
           <h5>Milestones</h5>
-          <div style={{ height: "2%" }} className="progress rounded-0">
-            <div className="progress-bar " role="progressbar" style={{ width: "25%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
           <div className="card" style={{ width: "21rem" }}>
             <h5 className=' text-center'>first milestone </h5>
             <div className="card-body">

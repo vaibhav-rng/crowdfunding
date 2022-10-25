@@ -1,10 +1,7 @@
-import { React, useState,useEffect } from 'react'
+import { React, useState} from 'react'
 
 
 const Basic = (props) => {
-
-    const [test, setTest] = useState("ww");
-    const [basicState, setBasicState] = useState({ title: "", subTitle: "", image: "", fundingGoals: "", subCatagory: "", catagory: "" })
 
     const catagory = [{
         label: "gaming",
@@ -47,31 +44,16 @@ const Basic = (props) => {
     }
 
     const handleDelete = (e, index) => {
-        e.preventDefault();
+            
         const list1 = [...milestoneState]
         list1.splice(index, 1)
         milestoneSetstate(list1)
     }
 
-    const handleChanges = (e) => {
-        const { name, value } = e.target
-        setBasicState({ ...basicState, [name]: value })
-    }
-
-
-    const test1 = (e) => {
-        props.setBasicState({ title: basicState.title, subTitle: basicState.subTitle, fundingGoals: basicState.fundingGoals, catagory: basicState.catagory, subCatagory: basicState.subCatagory })
-    }
 
     return (
         <>
             <form>
-                {props.basicState.title}
-                <br />
-                {basicState.title}
-                <br />
-
-    
                 {/* <button onClick={(e) => { props.setBasicState({ name: "vaibhav" }); e.preventDefault() }}>vaibhav</button> */}
                 <div className='d-flex justify-content-around' >
                     <div className=' container'>
@@ -88,18 +70,16 @@ const Basic = (props) => {
                         </div>
                         <div className='form-group row'>
                             <label className='col-4' htmlFor="decription">Subtitle</label>
-                            <textarea value={basicState.subTitle} name="subTitle" onChange={(e) => handleChanges(e)} className='col-8 form-control' placeholder='Enter the short description' id="decription" type="text" />
+                            <textarea value={props.basicState.subTitle} name="subTitle" onChange={(e) => props.handleChanges(e.target.value,e.target.name)}  className='col-8 form-control' placeholder='Enter the short description' id="decription" type="text" />
                         </div>
                         <div className='form-group row'>
                             <label className='col-4' htmlFor=""></label>
-                            <select value={basicState.catagory} onClick={(e) => handleChanges(e)} name="catagory" className="col-4 form-control">
-                                {catagory.map((sub1) => (<option value={sub1.value}>{sub1.label}</option>))}
+                            <select value={props.basicState.catagory} onChange={(e) => props.handleChanges(e.target.value,e.target.name)}  name="catagory" className="col-4 form-control">
+                                {catagory.map((sub1,index) => (<option key={index} value={sub1.value}>{sub1.label}</option>))}
                             </select>
-                            <select value={basicState.subCatagory} onClick={(e) => handleChanges(e)} name="subCatagory" className="col-4 form-control">
-                                {subcatagory.map((sub) => (<option value={sub.value}>{sub.label}</option>))}
+                            <select value={props.basicState.subCatagory} onChange={(e) => props.handleChanges(e.target.value,e.target.name)}  name="subCatagory" className="col-4 form-control">
+                                {subcatagory.map((sub,index) => (<option key={index} value={sub.value}>{sub.label}</option>))}
                             </select>
-                            {basicState.subCatagory}
-                            {basicState.catagory}
                         </div>
                     </div>
 
@@ -134,13 +114,12 @@ const Basic = (props) => {
                                 <option value="">doge</option>
                                 <option value="">enu-shiba</option>
                             </select>
-                            <input value={basicState.fundingGoals} onChange={(e) => handleChanges(e)} name="fundingGoals" type="number" className="form-control col-9" />
+                            <input value={props.basicState.fundingGoals} onChange={(e) => props.handleChanges(e.target.value,e.target.name)}  name="fundingGoals" type="number" className="form-control col-9" />
                         </div>
-                        {basicState.fundingGoals}
                     </div>
                 </div>
                 <hr />
-
+{/* 
                 <div className='d-flex justify-content-around'>
                     <div className='container'>
                         <h4>Milestones</h4>
@@ -165,7 +144,7 @@ const Basic = (props) => {
                     </div>
                 </div>
                 <hr />
-                {milestoneState.title}
+                {milestoneState.title} */}
 
             </form>
         </>

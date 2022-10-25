@@ -13,9 +13,10 @@ function App() {
     <Router>
     <div className="hov1">
       <Home/>
-      <Create_project/>
+      {/* <Create_project/> */}
       <Routes>
           <Route path="basic" element={<Basic/>} /> 
+          <Route path="createproject" element={<Create_project/>} /> 
           <Route path="story" element={<Story/>} />
           <Route path="milestones" element={<Milestones/>} /> 
           <Route path="rewards" element={<Rewards/>} /> 
