@@ -21,8 +21,7 @@ const Header = () => {
           <a className="navbar-brand" href="#">CrowdFunding</a>
         </div>
         <div>
-          <button className="btn btn-outline-success" type="submit">Signup</button>
-          <button className="btn btn-outline-success" type="submit">login</button>
+          <Link to="LoginRegister" className="btn btn-outline-success" type="submit">Login/Sign up</Link>
         </div>
 
       </nav>

@@ -14,7 +14,7 @@ function Milestones(props) {
         setAddMiles1({ ...addMiles1, [name]: value })
         if(name=="title1")
         {
-            setAddMiles1({ ...addMiles1, btn: false })
+            setAddMiles1({ btn: false })
         }
 
     }
@@ -40,7 +40,6 @@ function Milestones(props) {
             list[index][name] = value
         }
         props.setAddMiles(list)
-
     }
 
     return (
@@ -169,7 +168,7 @@ function Milestones(props) {
 
                     <div className=' d-flex justify-content-center'>
                         <div>
-                            <button name='title1' value="hh" onClick={(e) => { props.addMileStone1(e, addMiles1); settoggle(!toggele); addMileStone(e) }} style={{ width: "30rem" }} className=' btn btn-success'>ADD</button>
+                            <button name='title1' value="hh" onClick={(e) => { props.addMileStone1(e, addMiles1); settoggle(!toggele); addMileStone(e)}} style={{ width: "30rem" }} className=' btn btn-success'>ADD</button>
                         </div>
                     </div>
                     <br />
