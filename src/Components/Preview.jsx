@@ -2,6 +2,7 @@ import React from 'react'
 
 const preview = (props) => {
 
+  // title: "", description: "", amount: "", time: ""
   return (
     <>
 
@@ -100,15 +101,26 @@ const preview = (props) => {
               <h5 className=' text-center'>Rewards rewards</h5>
             </div>
           </div>
+          {/* {props.addMiles.map((item,index)=><div>{item.title} {index}{item.description} {item.amount}</div>)} */}
 
           <br />
           <h5>Milestones</h5>
+
           <div className="card" style={{ width: "21rem" }}>
-            <h5 className=' text-center'>first milestone </h5>
-            <div className="card-body">
-              <h5 className=' text-center'>title</h5>
-              <h5 className=' text-center'>Desciption</h5>
-              <h5 className=' text-center'>Rewards rewards</h5>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div className="carousel-inner">
+        
+
+      
+              </div>
+              <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
+              </a>
             </div>
           </div>
 

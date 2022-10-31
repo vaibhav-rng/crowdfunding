@@ -21,7 +21,6 @@ function Milestones(props) {
 
     const deleteHandel =(e,index)=>
     {
-        const { value, name } = e.target
         const list = [...props.addMiles]
         list.splice(index,1)
         props.setAddMiles(list)
@@ -42,8 +41,6 @@ function Milestones(props) {
         }
         props.setAddMiles(list)
 
-
-        console.log(index)
     }
 
     return (
