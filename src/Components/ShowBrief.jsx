@@ -1,10 +1,13 @@
 import React from 'react'
 import mockImage from '../mockImage/logo.png'
+import allProject from '../mockData/myProjects.json';
 
 function ShowBrief() {
     return (
 
+
         <div className='d-flex justify-content-between'>
+
             <div className=' container'>
                 <a href=""><img src={mockImage} alt="..." className="rounded border-0 h-100 w-100"></img>
                 </a>
