@@ -1,25 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+import logo1 from '../mockImage/profile.png'
+import project from '../mockImage/project1.jpg'
 
-const preview = (props) => {
 
-  // title: "", description: "", amount: "", time: ""
+
+const Preview = (props) => {
+
+  const [index1, setindex1] = useState(0)
+  const [index2, setindex2] = useState(0)
+
   return (
     <>
-
       <br />
-
       <div className=' text-center'>
-        <div>{props.basicState.title}</div>
-        <div>{props.basicState.subTitle}</div>
+        <h3 className=' font-weight-normal'>{props.basicState.title}</h3>
+        <h5 className=' text-muted font-weight-normal'>{props.basicState.subTitle}</h5>
       </div>
 
-      <br />
+
       <br />
 
 
       <div className=' d-flex justify-content-around'>
-        <div style={{ height: "25rem" }} className=' w-75  container border'>
-
+        <div style={{ height: "25rem" }} className=' w-75  container '>
+          <img src={project}  className=" img-fluid w-75" />
         </div>
         <div className=' container  w-50 '>
           <br />
@@ -27,14 +31,14 @@ const preview = (props) => {
             <div className="progress-bar bg-success" role="progressbar" style={{ width: "25%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
 
-          <h1>$0</h1>
+          <h1>$1000</h1>
           <h6 className='text-muted'>pledged of {props.basicState.fundingGoals}</h6>
 
           <h1>0</h1>
           <h6 className='text-muted'>backers</h6>
 
           <h1>0</h1>
-          <h6 className='text-muted'>Milestone reached of 10</h6>
+          <h6 className='text-muted'>Milestone reached of 4  </h6>
 
           <br />
           <br />
@@ -69,9 +73,12 @@ const preview = (props) => {
         </div>
         <div className='w-25 container'>
           <div className="card" style={{ width: "21rem" }}>
-            <img className="card-img-top" src="..." alt="Card image cap" />
+            <div className=' d-flex justify-content-center'>
+              <img className=" w-25  card-img-top rounded" src={logo1} alt="Card image cap" />
+
+            </div>
             <div className="card-body">
-              <h5>name</h5>
+              <h5>vaibhav</h5>
               <h6>4 create · 10 backed</h6>
             </div>
           </div>
@@ -92,38 +99,67 @@ const preview = (props) => {
               </div>
             </div>
           </div>
-          <div className="card" style={{ width: "21rem" }}>
-            <h5 className=' text-center'>pledge above 1 btc </h5>
-            <div className="card-body">
-              <h5 className=' text-center'>Rewards rewards</h5>
-              <h5 className=' text-center'>Rewards rewards</h5>
-              <h5 className=' text-center'>Rewards rewards</h5>
-              <h5 className=' text-center'>Rewards rewards</h5>
-            </div>
-          </div>
           {/* {props.addMiles.map((item,index)=><div>{item.title} {index}{item.description} {item.amount}</div>)} */}
+          <div className="card" style={{ width: "21rem" }}>
+
+            {props.rewards.map((items, index) => <>{index === index2 ? <>
+              <div className="" style={{ width: "21rem" }}>
+                <div className='d-flex justify-content-center'>
+                  <button className=' col-11 btn btn-dark text-monospace text-center'>Pledge {items.amount} etc</button>
+
+                </div>
+
+                <br />
+                <div className="">
+                  <button className=' btn btn-primary disabled'>Voting : {items.voting}x</button>
+                  <div className=' text-secondary text-center'>{items.description}</div>
+                </div>
+              </div>
+
+              <div>
+              </div>
+              <br />
+              <div className=' d-flex justify-content-between '>
+                <button className=' btn btn-success' onClick={() => { setindex2(index2 - 1) }}>prev</button>
+                <button className=' btn btn-success' onClick={() => { setindex2(index2 + 1) }}>next  </button>
+              </div>
+            </> : null}
+            </>)}
+          </div>
+
+
 
           <br />
           <h5>Milestones</h5>
 
           <div className="card" style={{ width: "21rem" }}>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-              <div className="carousel-inner">
-        
 
-      
+            {props.addMiles.map((items, index) => <>{index === index1 ? <>
+              <div className="card" style={{ width: "21rem" }}>
+                <div className=' d-flex justify-content-between'>
+                  <div className='  h-50 rounded bg-info text-center'>{items.time}</div>
+                  <h6 className=''>{items.title}</h6>
+                  <h6 className=' bg-dark text-white rounded p-1 '>{items.amount}</h6>
+                </div>
+
+                <hr />
+                <div className="card-body">
+                  <div className=' text-secondary text-center'>{items.description}</div>
+
+                </div>
               </div>
-              <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="sr-only">Previous</span>
-              </a>
-              <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
 
+              <div>
+
+              </div>
+              <div className=' d-flex justify-content-between '>
+                <button className=' btn btn-primary' onClick={() => { setindex1(index1 - 1) }}>prev</button>
+                <button className=' btn btn-primary' onClick={() => { setindex1(index1 + 1) }}>next  </button>
+              </div>
+            </> : null}
+            </>)}
+
+          </div>
         </div>
       </div>
 
@@ -132,4 +168,4 @@ const preview = (props) => {
   )
 }
 
-export default preview
+export default Preview

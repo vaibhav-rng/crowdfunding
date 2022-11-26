@@ -11,6 +11,8 @@ import Preview from '../Components/Preview'
 import ShowBrief from '../Components/ShowBrief'
 import LoginRegister from '../Components/LoginRegister'
 import { Link } from 'react-router-dom'
+import myProject from '../mockData/myProjects.json'
+
 
 function Home() {
   return (
@@ -29,16 +31,7 @@ function Home() {
       <h4 className=' text-muted'>All projects</h4>
       <hr />
       <div className=' d-flex  justify-content-start flex-wrap'>
-        <div style={{ height: "120px", marginBottom: "50px" }} className='w-50 border-0  border border-dark'>
-          <ShowBrief />
-        </div>
-        <div style={{ height: "120px", marginBottom: "50px" }} className='w-50 border-0  border border-dark'>
-          <ShowBrief />
-        </div>
-        <div style={{ height: "120px", marginBottom: "50px" }} className='w-50 border-0  border border-dark'>
-          <ShowBrief />
-        </div>
-
+         {myProject.map((data,index)=><div style={{ height: "120px", marginBottom: "50px" }} className='w-50 border-0  border border-dark'><ShowBrief data={data} /></div>)}
       </div>
 
     </div>

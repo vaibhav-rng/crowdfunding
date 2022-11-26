@@ -4,21 +4,21 @@ import { React, useState} from 'react'
 const Basic = (props) => {
 
     const catagory = [{
-        label: "gaming",
-        value: "gaming",
+        label: "web",
+        value: "web",
     },
     {
-        label: "Apple",
-        value: "apple",
+        label: "Ai",
+        value: "Ai",
     }]
 
     const subcatagory = [{
-        label: "action",
-        value: "action",
+        label: "backend",
+        value: "backend",
     },
     {
-        label: "Apple",
-        value: "apple",
+        label: "Data mining",
+        value: "Data mining",
     },
     ]
 
@@ -109,10 +109,7 @@ const Basic = (props) => {
                     <div className=' container'>
                         <div className="input-group ">
                             <select className=" col-3 form-select" id="inputGroup-sizing-sm">
-                                <option value="">btc</option>
                                 <option value="">etc</option>
-                                <option value="">doge</option>
-                                <option value="">enu-shiba</option>
                             </select>
                             <input value={props.basicState.fundingGoals} onChange={(e) => props.handleChanges(e.target.value,e.target.name)}  name="fundingGoals" type="number" className="form-control col-9" />
                         </div>

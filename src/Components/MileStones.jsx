@@ -16,7 +16,7 @@ function Milestones(props) {
         {
             setAddMiles1({ btn: false })
         }
-
+        e
     }
 
     const deleteHandel =(e,index)=>
@@ -51,6 +51,7 @@ function Milestones(props) {
             </div>
 
 
+
             {toggele === false ?
                 <div onClick={() => settoggle(!toggele)} className=' d-flex justify-content-center'>
                     <div style={{ height: "60px" }} className=' btn btn-dark container rounded-0'>
@@ -73,8 +74,6 @@ function Milestones(props) {
                     <br />
                 </div>
                 : null}
-
-
 
             {props.addMiles.map((item, index) => <div key={index}>
                 <div className=' d-flex justify-content-center'>
@@ -101,7 +100,7 @@ function Milestones(props) {
                         </div>
                         <div className="card-body">
                             {item.btn === false
-                                ? <p className="card-text">{item.description} With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.</p>
+                                ? <p className="card-text">{item.description}</p>
                                 : <textarea className=' form-control' type="text" rows="5"  name='description' onChange={(e) => changeButton(e, index)} value={item.description} />
                             }
                             <a onClick={(e)=>deleteHandel(e,item.index)} className="float-right col-2 btn btn-danger">Delete</a>

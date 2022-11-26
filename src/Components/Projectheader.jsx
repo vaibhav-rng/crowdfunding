@@ -78,7 +78,7 @@ function Projectheader() {
             {navBarCol.curr === "3" ? <Milestones addMiles={addMiles} setAddMiles={setAddMiles} addMileStone1={addMileStone1} changeButton={changeButton} /> : null}
             {navBarCol.curr === "4" ? <Rewards setRewardList={setRewardList} rewardList={rewardList} /> : null}
             {navBarCol.curr === "5" ? <Payement /> : null}
-            {navBarCol.curr === "7" ? <Preview basicState={basicState} addMiles={addMiles} /> : null}
+            {navBarCol.curr === "7" ? <Preview basicState={basicState} addMiles={addMiles} rewards={rewardList}/> : null}
 
             <br />
             <br />

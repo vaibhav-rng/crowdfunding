@@ -27,7 +27,7 @@ function LoginRegister() {
                             <br />
                             <input placeholder='Enter Password' className='form form-control text-center' type="password" />
                             <br />
-                            <Link to="ProfileHome" className='btn btn-primary col-4'>Login</Link>
+                            <Link to="/ProfileHome" className='btn btn-primary col-4'>Login</Link>
                         </div>
 
                     </div>}
@@ -58,3 +58,5 @@ function LoginRegister() {
 }
 
 export default LoginRegister
+
+

@@ -77,7 +77,7 @@ function Rewards(props) {
             </div>
             <div className="card-body">
               {item.btn === false
-                ? <p className="card-text">{item.description} With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.</p>
+                ? <p className="card-text">{item.description}</p>
                 : <textarea className=' form-control' type="text" rows="5" name='description' onChange={(e) => changeButton(e, index)} value={item.description} />
               }
               <a onClick={(e) => deleteHandel(e, item.index)} className="float-right col-2 btn btn-danger">Delete</a>
