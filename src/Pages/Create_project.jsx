@@ -1,15 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Basic from '../Components/Basic'
-import Nextheader from '../Components/Nextheader'
+import {React,useContext} from 'react'
 import Projectheader from '../Components/Projectheader'
-import Header from '../Components/Header'
+import AuthContext from '../context/AuthContext';
+import LoginRegister from '../Components/LoginRegister';
 
 
 const Create_project = () => {
+  const { loggedIn } = useContext(AuthContext)
+ 
+
   return (
     <>
-      <Projectheader />
+      {loggedIn === undefined?<LoginRegister route="/createProject"/>:<Projectheader/>}
+
+
     </>
   )
 }

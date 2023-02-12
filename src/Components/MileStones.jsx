@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function Milestones(props) {
 
-    const [addMiles1, setAddMiles1] = useState({ title: "", description: "", amount: "", time: "", btn: false })
+    const [addMiles1, setAddMiles1] = useState({ title: "", desc: "", amount: "", time: "", btn: false })
     const [toggele, settoggle] = useState(false)
 
 
@@ -16,7 +16,7 @@ function Milestones(props) {
         {
             setAddMiles1({ btn: false })
         }
-        e
+        
     }
 
     const deleteHandel =(e,index)=>
@@ -79,11 +79,13 @@ function Milestones(props) {
                 <div className=' d-flex justify-content-center'>
                     <div className="card col-7">
                         <div className="card-header bg-transparent d-flex justify-content-between ">
+                            <div>
 
-                            {item.btn === false
+                            </div>
+                            {/* {item.btn === false
                                 ? <h5><span className='badge badge-light'>{item.time}</span></h5>
                                 : <input className=' form-control' type="datetime-local" name='time' onChange={(e) => changeButton(e, index)} value={item.title} />
-                            }
+                            } */}
 
 
                             {item.btn === false
@@ -92,7 +94,7 @@ function Milestones(props) {
                             }
 
                             {item.btn === false
-                                ? <h5><span className="badge badge-secondary">btc {item.amount}</span></h5>
+                                ? <h5><span className="badge rounded-0  px-4 badge-secondary"> {item.amount} %</span></h5>
                                 : <input className=' form-control' type="number" name='amount' onChange={(e) => changeButton(e, index)} value={item.amount} />
                             }
 
@@ -100,14 +102,14 @@ function Milestones(props) {
                         </div>
                         <div className="card-body">
                             {item.btn === false
-                                ? <p className="card-text">{item.description}</p>
-                                : <textarea className=' form-control' type="text" rows="5"  name='description' onChange={(e) => changeButton(e, index)} value={item.description} />
+                                ? <p className="text-monospace card-text">{item.desc}</p>
+                                : <textarea className=' form-control' type="text" rows="5"  name='desc' onChange={(e) => changeButton(e, index)} value={item.desc} />
                             }
-                            <a onClick={(e)=>deleteHandel(e,item.index)} className="float-right col-2 btn btn-danger">Delete</a>
+                            <a onClick={(e)=>deleteHandel(e,item.index)} className="float-right col-2 btn btn-danger  rounded-0">Delete</a>
 
                             {item.btn === true ?
-                                <button name="btn" onClick={(e) => changeButton(e, index)} className=" float-right col-2 btn btn-success">Save</button>
-                                : <button name="btn1" onClick={(e) => changeButton(e, index)} className=" float-right col-2 btn btn-primary">Edit</button>}
+                                <button name="btn" onClick={(e) => changeButton(e, index)} className=" float-right col-2 btn btn-success rounded-0">Save</button>
+                                : <button name="btn1" onClick={(e) => changeButton(e, index)} className=" float-right col-2 btn btn-primary rounded-0">Edit</button>}
                         </div>
                     </div>
                 </div>
@@ -128,29 +130,28 @@ function Milestones(props) {
                     <div className=' d-flex justify-content-center'>
                         <div className='form-group'>
                             <label className='col-4' htmlFor="titleMilestone">Description</label>
-                            <textarea name="description" onChange={(e) => addMileStone(e)} style={{ width: "30rem" }} className=' form-control' placeholder='Enter the title of Milestone Description' id="titleMilestone" type="text" />
+                            <textarea name="desc" onChange={(e) => addMileStone(e)} style={{ width: "30rem" }} className=' form-control' placeholder='Enter the title of Milestone description' id="titleMilestone" type="text" />
                         </div>
                     </div>
                     <hr />
                     <div className='d-flex justify-content-around'>
                         <div className=' container'>
-                            <h4>Milestone Amount</h4>
-                            <p className='text-muted col-9'>Set the amount of fund you need to complete this milestone.</p>
-                            <p className=' text-danger'>Milestone cannot exceed total amount of funds.</p>
+                            <h4>Milestone Percentage</h4>
+                            <p className='text-muted col-9'>Set the percentage of fund you need to complete this milestone.</p>
+                            <p className=' text-danger'>Milestone percentage should not exceed total 100% of funds.</p>
 
                         </div>
                         <div className=' container'>
                             <div className="input-group ">
                                 <select className=" col-3 form-select" id="inputGroup-sizing-sm">
-                                    <option value="">btc</option>
-                                    <option value="">etc</option>
+                                    <option value="">Percent</option>
                                 </select>
                                 <input name="amount" onChange={(e) => addMileStone(e)} type="text" className="form-control col-9" />
                             </div>
                         </div>
                     </div>
-                    <hr />
-                    <div className='d-flex justify-content-around'>
+                    {/* <hr /> */}
+                    {/* <div className='d-flex justify-content-around'>
                         <div className=' container'>
                             <h4>Time</h4>
                             <p className='text-muted col-9'>Set time to complete this milestone. It's better to deliver to backers ahead of schedule than behind.</p>
@@ -161,7 +162,7 @@ function Milestones(props) {
                                 <input name="time" onChange={(e) => addMileStone(e)} type="datetime-local" className="form-control col-9 text-center" />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <br />
 

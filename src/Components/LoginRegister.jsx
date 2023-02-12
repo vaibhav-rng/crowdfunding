@@ -1,10 +1,59 @@
 import React from 'react'
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
+import axios from 'axios';
 
-function LoginRegister() {
+function LoginRegister(props) {
 
     const [toggle, setToggle] = useState(true);
+    const navigate = useNavigate();
+    const [userData,setUserData] = useState({name:"",email:"",password:"",address:""});
+    const [loginData,setLoginData] = useState({email:"",password:""});
+    const [error,setError]=useState(false);
+
+
+    const onchangeHandler =(event)=>{
+        const {name,value}=event.target
+
+        setUserData({...userData,[name]:value})
+
+    }
+
+    const onchangeHandlerLogin =(event)=>{
+        const {name,value}=event.target
+
+        setLoginData({...loginData,[name]:value})
+    }
+
+    const onSubmitHandeler =(event)=>{
+        event.preventDefault()
+        axios.post("http://localhost:8000/users",{
+            name:userData.name,
+            email:userData.email,
+            password:userData.password,
+            address:userData.address
+
+        }).then(() => {
+            alert("done")
+        }).catch(() => {
+            alert("not done")
+        })
+    }
+    const onSubmitHandelerLogin =(event)=>{
+        event.preventDefault()
+        axios.post("http://localhost:8000/users/login",{
+            email:loginData.email,
+            password:loginData.password,
+        }).then(() => {
+            navigate(props.route)
+            window.location.reload(true)
+        }).catch(() => {
+            setError(true)
+        })
+    }
+
+    
+    
 
     return (
         <>
@@ -16,38 +65,45 @@ function LoginRegister() {
 
                 {!toggle ?
                     <button onClick={() => setToggle(!toggle)} className='border-0 rounded container text-center p-5 bg-light'>
-                       <h1>Login</h1>
+                        <h1>Login</h1>
                     </button>
 
-                    : <div className=' container text-center p-5'>
+                    : <form onSubmit={(e)=>onSubmitHandelerLogin(e)} className=' container text-center p-5'>
                         <h5 className=' alert-dark p-2 rounded'>Login</h5>
                         <br />
                         <div>
-                            <input placeholder='Enter Username' className='form form-control text-center' type="text" />
+                            <input name="email" onChange={(e)=>onchangeHandlerLogin(e)} value={loginData.email} placeholder='Enter Username' className='form form-control text-center' type="text" />
                             <br />
-                            <input placeholder='Enter Password' className='form form-control text-center' type="password" />
-                            <br />
-                            <Link to="/ProfileHome" className='btn btn-primary col-4'>Login</Link>
+                            <input name="password" onChange={(e)=>onchangeHandlerLogin(e)} value={loginData.password} placeholder='Enter Password' className='form form-control text-center' type="password" />
+                        
+                            
+                            {error?<div className=' text-danger'> *Please Enter correct username or password</div>:<br />}
+                            <button type='submit' className='btn btn-primary col-4'>Login</button>
+                            
                         </div>
 
-                    </div>}
+                    </form>}
 
                 {!toggle ?
-                    <div className='container text-center p-5'>
+                    <form className='container text-center p-5' onSubmit={(event)=>{onSubmitHandeler(event)}}>
                         <h5 className='alert-dark p-2 rounded'>Register</h5>
                         <br />
                         <div>
-                            <input placeholder='Enter Email' className='form form-control text-center' type="text" />
+                            <input value={userData.name} onChange={(event)=>{onchangeHandler(event)}} name='name' placeholder='Enter the Name' className='form form-control text-center' type="text" />
                             <br />
-                            <input placeholder='Enter Password' className='form form-control text-center' type="password" />
+                            <input value={userData.email} onChange={(event)=>{onchangeHandler(event)}} name='email' placeholder='Enter Email' className='form form-control text-center' type="text" />
+                            <br />
+                            <input value={userData.address} onChange={(event)=>{onchangeHandler(event)}} name='address' placeholder='Enter Address' className='form form-control text-center' type="text" />
+                            <br />
+                            <input value={userData.password} onChange={(event)=>{onchangeHandler(event)}} name='password' placeholder='Enter Password' className='form form-control text-center' type="password" />
                             <br />
                             <input placeholder='re-enter Password' className='form form-control text-center' type="password" />
                             <br />
-                            <button className='btn btn-success col-4'>Register</button>
+                            <button type='submit' className='btn btn-success col-4'>Register</button>
                         </div>
-                    </div>
+                    </form>
 
-                    : <button onClick={() => setToggle(!toggle)} className='border-0 rounded container text-center p-5 bg-light'>
+                    :<button onClick={() => setToggle(!toggle)} className='border-0 rounded container text-center p-5 bg-light'>
                         <h1 className=' text-muted'> Register</h1>
                     </button>}
 
@@ -56,6 +112,10 @@ function LoginRegister() {
         </>
     )
 }
+
+LoginRegister.defaultProps = {
+    route:"/"
+  }
 
 export default LoginRegister
 

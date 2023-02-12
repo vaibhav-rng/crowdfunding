@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function Rewards(props) {
 
-  const [reward, setRewards] = useState({ title: "", description: "", amount: "", shipping: "", voting: "" ,btn:false})
+  const [reward, setRewards] = useState({ title: "", desc: "", amount: "", shipping: "", voting: "" ,btn:false})
 
   const onChange = (e) => {
     const { value, name } = e.target
@@ -69,7 +69,7 @@ function Rewards(props) {
               }
 
               {item.btn === false
-                ? <h5><span className="badge badge-secondary">btc {item.amount}</span></h5>
+                ? <h5><span className="badge badge-secondary">ETC {item.amount}</span></h5>
                 : <input className=' form-control' type="number" name='amount' onChange={(e) => changeButton(e, index)} value={item.amount} />
               }
 
@@ -77,8 +77,8 @@ function Rewards(props) {
             </div>
             <div className="card-body">
               {item.btn === false
-                ? <p className="card-text">{item.description}</p>
-                : <textarea className=' form-control' type="text" rows="5" name='description' onChange={(e) => changeButton(e, index)} value={item.description} />
+                ? <p className="card-text">{item.desc}</p>
+                : <textarea className=' form-control' type="text" rows="5" name='desc' onChange={(e) => changeButton(e, index)} value={item.desc} />
               }
               <a onClick={(e) => deleteHandel(e, item.index)} className="float-right col-2 btn btn-danger">Delete</a>
 
@@ -110,8 +110,8 @@ function Rewards(props) {
 
         <div className=' d-flex justify-content-center'>
           <div className='form-group'>
-            <label className='col-4' htmlFor="rewardDes">Description</label>
-            <textarea name="description" onChange={(e) => onChange(e)} value={reward.description} style={{ width: "30rem" }} className=' form-control' placeholder='Enter the title of reward Description' id="rewardDes" type="text" />
+            <label className='col-4' htmlFor="rewardDes">Desc</label>
+            <textarea name="desc" onChange={(e) => onChange(e)} value={reward.desc} style={{ width: "30rem" }} className=' form-control' placeholder='Enter the title of reward Desc' id="rewardDes" type="text" />
           </div>
         </div>
         <hr />
@@ -123,8 +123,7 @@ function Rewards(props) {
           <div className=' container'>
             <div className="input-group ">
               <select className=" col-3 form-select" id="inputGroup-sizing-sm">
-                <option value="">btc</option>
-                <option value="">etc</option>
+                <option value="">ETC</option>
               </select>
               <input name="amount" onChange={(e) => onChange(e)} value={reward.amount} type="text" className="form-control col-9" />
             </div>
